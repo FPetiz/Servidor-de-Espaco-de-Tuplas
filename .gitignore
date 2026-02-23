@@ -1,0 +1,7 @@
+# Arquivos compilados do Go
+/go/servidor_linda
+/go/*.exe
+
+# Arquivos compilados do C++
+/Tester/*.out
+/Tester/*.exe
