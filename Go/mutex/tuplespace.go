@@ -1,13 +1,18 @@
 package main
 
-import "sync"
+import (
+	"linda/core"
+	"sync"
+)
 
+// Modelo de tuplas
 type Tuple struct {
 	Key   string
 	Value string
 }
 
 type TupleSpace struct {
+	// várias tuplas com a mesma chave
 	data map[string][]Tuple
 	mu   sync.Mutex
 	cond *sync.Cond
@@ -107,8 +112,9 @@ func (ts *TupleSpace) EX(key_in, key_out string, svc_id int) string {
 	tuple := ts.data[key_in][0]
 	ts.data[key_in] = ts.data[key_in][1:]
 
-	service, exists := services[svc_id]
+	service, exists := core.Services[svc_id]
 	if !exists {
+		ts.mu.Unlock()
 		return "NO-SERVICE"
 	}
 	ts.mu.Unlock()

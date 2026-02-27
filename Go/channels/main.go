@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
+	"linda/core"
 	"os"
 )
 
 func main() {
-	// RunDevTests()
 
 	if len(os.Args) != 2 {
 		fmt.Println("Uso: go run . <porta>")
@@ -16,5 +16,5 @@ func main() {
 	port := os.Args[1]
 
 	ts := NewTupleSpace()
-	StartServer(port, ts)
+	core.StartServer(port, ts)
 }

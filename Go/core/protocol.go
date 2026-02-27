@@ -1,4 +1,4 @@
-package main
+package core
 
 import (
 	"strconv"
@@ -14,7 +14,7 @@ acha o comando e chama função certa
 -> retorna resposta
 ====================================
 */
-func HandleCommand(input string, ts *TupleSpace) string {
+func HandleCommand(input string, ts TupleSpace) string {
 	input = strings.TrimSpace(input)
 	parts := strings.Fields(input)
 

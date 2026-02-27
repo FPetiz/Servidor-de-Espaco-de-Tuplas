@@ -1,4 +1,4 @@
-package main
+package core
 
 import (
 	"strconv"
@@ -9,7 +9,7 @@ import (
 type ServiceFunc func(string) string
 
 // Tabela de serviços: svc_id −→ funcao(string) −→ string
-var services = map[int]ServiceFunc{
+var Services = map[int]ServiceFunc{
 	// converter a string para maiúsculas
 	1: func(s string) string {
 		//time.Sleep(20 * time.Second)
@@ -23,7 +23,7 @@ var services = map[int]ServiceFunc{
 		}
 		return string(runes)
 	},
-	// retornar o tamanho da string como valor textual
+	// retornar o tamanho da string
 	3: func(s string) string {
 		return strconv.Itoa(len(s))
 	},

@@ -1,4 +1,4 @@
-package main
+package core
 
 import (
 	"bufio"
@@ -6,7 +6,7 @@ import (
 	"net"
 )
 
-func StartServer(port string, ts *TupleSpace) {
+func StartServer(port string, ts TupleSpace) {
 	listener, err := net.Listen("tcp", ":"+port)
 	if err != nil {
 		panic(err)
@@ -36,7 +36,7 @@ escreve resposta e envia de pela rede
 -> fecha conexão com o cliente
 ====================================
 */
-func handleConnection(conn net.Conn, ts *TupleSpace) {
+func handleConnection(conn net.Conn, ts TupleSpace) {
 	defer conn.Close()
 
 	reader := bufio.NewReader(conn)
