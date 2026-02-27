@@ -53,11 +53,11 @@ LINDA/
 │   │   ├── server.go        # Lógica de conexão TCP e ciclo de vida dos clientes
 │   │   └── services.go      # Tabela e implementação das funções do comando EX
 │   │
-│   ├── mutex/               # Implementação Clássica
+│   ├── mutex/               # Implementação Clássica usando Mutex
 │   │   ├── main.go          # Ponto de entrada da versão Mutex
 │   │   └── tuplespace.go    # Estrutura de dados usando sync.Mutex e sync.Cond
 │   │
-│   └── channels/            # Implementação Idiomática Go
+│   └── channels/            # Implementação usando Channels
 │       ├── main.go          # Ponto de entrada da versão Channels
 │       └── tuplespace.go    # Estrutura de dados usando goroutines únicas e chan
 │
